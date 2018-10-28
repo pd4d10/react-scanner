@@ -1,0 +1,8 @@
+{
+  "name": "react-scanner",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "pd4d10/react-scanner",
+  "author": "Rongjian Zhang <pd4d10@gmail.com>",
+  "license": "MIT"
+}
