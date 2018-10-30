@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "main": "lib/index.js",
   "module": "esm/index.js",
+  "types": "esm/index.d.ts",
   "repository": "pd4d10/react-scanner",
   "author": "Rongjian Zhang <pd4d10@gmail.com>",
   "license": "MIT",
