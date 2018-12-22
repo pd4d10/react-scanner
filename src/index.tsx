@@ -3,6 +3,10 @@ import jsQR from 'jsqr'
 
 type ScannerProps = {
   /**
+   * size
+   */
+  size: number
+  /**
    * Scan interval
    */
   interval?: number
@@ -18,6 +22,7 @@ type ScannerProps = {
 
 export default class Scanner extends React.Component<ScannerProps> {
   static defaultProps: Partial<ScannerProps> = {
+    size: 500,
     interval: 500,
   }
 
@@ -34,7 +39,13 @@ export default class Scanner extends React.Component<ScannerProps> {
     }
 
     const stream = await navigator.mediaDevices.getUserMedia({
-      video: videoInputDevices[0],
+      video: {
+        // deviceId: videoInputDevices[0].deviceId,
+        // frameRate: { ideal: 25, min: 10 },
+        // facingMode: { ideal: 'environment' },
+        // width: this.props.size,
+        // height: this.props.size,
+      },
     })
     const $video = this.videoRef.current!
     $video.srcObject = stream
@@ -61,8 +72,17 @@ export default class Scanner extends React.Component<ScannerProps> {
   render() {
     return (
       <>
-        <video ref={this.videoRef} />
-        <canvas style={{ display: 'none' }} ref={this.canvasRef} />
+        <video
+          ref={this.videoRef}
+          width={this.props.size}
+          height={this.props.size}
+        />
+        <canvas
+          // style={{ display: 'none' }}
+          ref={this.canvasRef}
+          width={this.props.size}
+          height={this.props.size}
+        />
       </>
     )
   }

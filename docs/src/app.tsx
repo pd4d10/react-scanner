@@ -9,6 +9,7 @@ class App extends React.Component {
           onScan={v => {
             console.log(v)
           }}
+          interval={3000}
         />
       </div>
     )
